@@ -1,0 +1,50 @@
+@import url('../../styles/variabales.scss');
+
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color-secondary);
+}
+
+.menu_list {
+    padding-left: 0;
+}
+
+.menu_item {
+    border-bottom: 1px solid var(--border-color);
+    text-decoration: none;
+    list-style: none;
+    display: f;
+}
+
+.menu_item:first-of-type {
+    border-top: 1px solid var(--border-color);
+}
+
+.menu_link {
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px 12px 15px;
+    font-size: 18px;
+    color: var(--text-color);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu_link img {
+    fill: green;
+    height: 30px;
+}
+
+.menu_link:not(.active):hover {
+  background: var(--bg-color-hover);
+}
+
+.active {
+  background-color: var(--accent-color);
+  color: white;
+}

@@ -1,0 +1,16 @@
+@import '../../styles/variabales.scss';
+
+.svg {
+    fill: black; /* Начальный цвет */
+    transition: all 0.2s, fill 0.1s; /* Плавный переход цвета */
+    height: 35px;
+    width: 35px;
+}
+
+.wrapper:hover svg g rect {
+    fill: white; /* Цвет при наведении */
+}
+
+.wrapper:active svg {
+    transform: scale(1.2);
+}
