@@ -4,13 +4,16 @@ import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { MyAssigned } from "../pages/MyAssigned/MyAssigned";
 import { TicketPage } from "../pages/TicketPage/TicketPage";
+import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
+import { ClientsPage } from "../pages/ClientsPage/ClientsPage";
 import { MainLayout } from "../components/MainLayout/MainLayout";
-import { AllTicketPage } from "../pages/AllTicketPage/AllTicketPage";
 import { Applications1C } from "../pages/Applications1C/Applications1C";
 import { StatisticsPage } from "../pages/StatisticsPage/StatisticsPage";
+import { ParametersPage } from "../pages/ParametersPage/ParametersPage";
+import { ClosedTodayPage } from "../pages/ClosedTodayPage/ClosedTodayPage";
 import { CreateTicketPage } from "../pages/CreateTicketPage/CreateTicketPage";
-import { AllOpenTicketPage } from "../pages/AllOpenTicketPage/AllOpenTicketPage";
 import { AllClosedTicketPage } from "../pages/AllClosedTicketPage/AllClosedTicketPage";
+import { UniversalTicketsSheet } from "../pages/UniversalTicketsSheet/UniversalTicketsSheet";
 import { MyOrganizationTicketsPage } from "../pages/MyOrganizationTicketsPage/MyOrganizationTicketsPage";
 
 const PrivateRoute = ({ children }) => {
@@ -49,40 +52,44 @@ export const AppRoutes = () => {
           </PrivateRoute>
         }
       >
+          <Route
+          path="*"
+          element={
+            <PrivateRoute>
+              <ErrorPage />
+            </PrivateRoute>
+          }
+        />
         //Перенаправляет на странице /ticket по умолчанию
         <Route index element={<Navigate to="/ticket" replace />} />
 
         //Страница с задачами, по умолчанию показывает список задач пользователя
         <Route path="/ticket" element={<TicketPage />}>
           <Route index element={<Navigate to="my_assigned" replace />} />
-          <Route path="my_assigned" element={<MyAssigned />} />
-          <Route path="1с_applications" element={<Applications1C />} />
-          <Route path="all_open" element={<AllOpenTicketPage />} />
-          <Route path="all_closed" element={<AllClosedTicketPage />} />
-          <Route path="my_organization_tickets" element={<MyOrganizationTicketsPage />} />
-          <Route path="all_tickets" element={<AllTicketPage />} />
-          {/* Добавьте другие подстраницы при необходимости */}
+          <Route path="my_assigned" element={<UniversalTicketsSheet url={"my_assigned"} />}  />
+          <Route path="1с_applications" element={<UniversalTicketsSheet url={"1с_applications"} />} />
+          <Route path="all_open" element={<UniversalTicketsSheet url={"all_open"} />} />
+          <Route path="all_closed" element={<UniversalTicketsSheet url={"all_closed"} />} />
+          <Route path="my_organization_tickets" element={<UniversalTicketsSheet url={"my_organization_tickets"} />} />
+          <Route path="all_tickets" element={<UniversalTicketsSheet url={"all_tickets"} />} />
+          <Route path="closed_today" element={<UniversalTicketsSheet url={"closed_today"} />} />
+          <Route path="current_tasks" element={<UniversalTicketsSheet url={"current_tasks"} />} />
         </Route>
+
         //Страница статистики пользователя по выполненым задачам
-        <Route path="/statistics" element={<StatisticsPage />}>
-          {/* <Route index element={<Navigate to="my_task" replace />} />
-          <Route path="my_task" element={<MyTaskPage />} />*/}
-        </Route>
-         //Страница статистики пользователя по выполненым задачам
-        <Route path="/create" element={<CreateTicketPage />}>
-          {/* <Route index element={<Navigate to="my_task" replace />} />
-          <Route path="my_task" element={<MyTaskPage />} />*/}
-        </Route>
+        <Route path="/statistics" element={<StatisticsPage />}> </Route>
+         //Страница создания заявки
+        <Route path="/create" element={<CreateTicketPage />}></Route>
+        //Страница со списком всех клиентов
+        <Route path="/clients" element={<ClientsPage />}></Route>
+        //Страница профиля
+        <Route path="/profile" element={<ProfilePage />}></Route>
+        //Страница настроек
+        <Route path="/parameters" element={<ParametersPage />}></Route>
+
       </Route>
 
-      <Route
-        path="*"
-        element={
-          <PrivateRoute>
-            <ErrorPage />
-          </PrivateRoute>
-        }
-      />
+      
     </Routes>
   );
 };

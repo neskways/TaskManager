@@ -1,9 +1,11 @@
 import s from "./SidebarSecondary.module.scss";
 import { NavLink } from "react-router-dom";
-import {secondaryLinks} from '../../modules/sidebarLinks'
+import { secondaryLinks } from '../../modules/sidebarLinks'
 
 export const SidebarSecondary = () => {
-  
+
+  const count = 0;
+
   return (
     <div className={s.sidebar}>
       <nav className={s.menu}>
@@ -15,7 +17,8 @@ export const SidebarSecondary = () => {
                 className={({ isActive }) => `${s.menu_link} ${isActive ? s.active : ""}`}
                 end={link.exact}
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span className={s.count}>{count}</span>
               </NavLink>
             </li>
           ))}

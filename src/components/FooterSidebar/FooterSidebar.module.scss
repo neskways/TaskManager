@@ -31,3 +31,7 @@
 .create:hover {
   background: var(--true);
 }
+
+.active {
+  background: var(--bg-color-hover);
+}

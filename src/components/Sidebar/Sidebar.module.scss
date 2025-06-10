@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     background-color: var(--bg-color-secondary);
+  position: relative;
 }
 
 .menu_list {
@@ -16,7 +17,6 @@
     border-bottom: 1px solid var(--border-color);
     text-decoration: none;
     list-style: none;
-    display: f;
 }
 
 .menu_item:first-of-type {
@@ -27,7 +27,7 @@
     text-decoration: none;
     display: block;
     padding: 12px 20px 12px 15px;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--text-color);
     transition: var(--transition);
     display: flex;
@@ -37,7 +37,7 @@
 
 .menu_link img {
     fill: green;
-    height: 30px;
+    height: 25px;
 }
 
 .menu_link:not(.active):hover {
