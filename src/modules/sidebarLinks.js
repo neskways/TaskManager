@@ -1,5 +1,37 @@
+import { ListIcon } from "../UI/ListIcon/ListIcon";
+import { StatiscticsIcon } from "../UI/StatiscticsIcon/StatiscticsIcon";
+import { ClientsIcon } from "../UI/ClientsIcon/ClientsIcon";
+import { TableIcon } from "../UI/TableIcon/TableIcon";
+
+export const sidebarItems = [
+  {
+    label: "Списки",
+    path: "/ticket/my_assigned",
+    isActive: (currentPath) => currentPath.startsWith("/ticket"),
+    Icon: ListIcon,
+  },
+  {
+    label: "Статистика",
+    path: "/statistics",
+    isActive: (currentPath) => currentPath.startsWith("/statistics"),
+    Icon: StatiscticsIcon,
+  },
+  {
+    label: "Клиенты",
+    path: "/clients",
+    isActive: (currentPath) => currentPath.startsWith("/clients"),
+    Icon: ClientsIcon,
+  },
+  {
+    label: "Графики",
+    path: "/shedules",
+    isActive: (currentPath) => currentPath.startsWith("/shedules"),
+    Icon: TableIcon,
+  },
+];
+
 //Список страниц для SidebarSecondary
-export const secondaryLinks = [
+export const sidebarSecondaryItems = [
   {
     label: "Назначенные мне заявки",
     to: "/ticket/my_assigned",

@@ -15,6 +15,7 @@ import { CreateTicketPage } from "../pages/CreateTicketPage/CreateTicketPage";
 import { AllClosedTicketPage } from "../pages/AllClosedTicketPage/AllClosedTicketPage";
 import { UniversalTicketsSheet } from "../pages/UniversalTicketsSheet/UniversalTicketsSheet";
 import { MyOrganizationTicketsPage } from "../pages/MyOrganizationTicketsPage/MyOrganizationTicketsPage";
+import { SchedulePage } from "../pages/SchedulePage/SchedulePage";
 
 const PrivateRoute = ({ children }) => {
   // const { isAuthenticated } = useAuth();
@@ -86,6 +87,8 @@ export const AppRoutes = () => {
         <Route path="/profile" element={<ProfilePage />}></Route>
         //Страница настроек
         <Route path="/parameters" element={<ParametersPage />}></Route>
+        //Страница графиков обновлений и дежурств
+        <Route path="/shedules" element={<SchedulePage />}></Route>
 
       </Route>
 

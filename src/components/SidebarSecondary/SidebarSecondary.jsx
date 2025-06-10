@@ -1,6 +1,6 @@
 import s from "./SidebarSecondary.module.scss";
 import { NavLink } from "react-router-dom";
-import { secondaryLinks } from '../../modules/sidebarLinks'
+import { sidebarSecondaryItems } from '../../modules/sidebarLinks'
 
 export const SidebarSecondary = () => {
 
@@ -10,7 +10,7 @@ export const SidebarSecondary = () => {
     <div className={s.sidebar}>
       <nav className={s.menu}>
         <ul className={s.menu_list}>
-          {secondaryLinks.map((link) => (
+          {sidebarSecondaryItems.map((link) => (
             <li className={s.menu_item} key={link.to}>
               <NavLink
                 to={link.to}
