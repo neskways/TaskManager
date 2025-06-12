@@ -1,15 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import s from "./ClientsPage.module.scss";
+import { PageTitle } from "../../components/PageTitle/PageTitle";
+import { getFromLocalStorage, saveToLocalStorage } from "../../modules/localStorageUtils";
 
 const headers = ["Клиент", "Приоритет", "1С", "СисАдмин", "Почасовка", "Задачи"];
-const initialWidths = [150, 150, 150, 150, 150, 150]; // стартовые ширины колонок
+const LOCAL_STORAGE_KEY = "clients_table_col_widths";
+const defaultWidths = [40, 12, 14, 14, 14, 6];
 
 export const ClientsPage = () => {
-  const [colWidths, setColWidths] = useState(initialWidths);
+  const [colWidths, setColWidths] = useState(() =>
+    getFromLocalStorage(LOCAL_STORAGE_KEY, defaultWidths)
+  );
+
+  const tableRef = useRef(null);
   const isResizing = useRef(false);
   const startX = useRef(0);
   const resizingColIndex = useRef(null);
   const startWidths = useRef([0, 0]);
+
+  useEffect(() => {
+    saveToLocalStorage(LOCAL_STORAGE_KEY, colWidths);
+  }, [colWidths]);
 
   const handleMouseDown = (e, index) => {
     e.preventDefault();
@@ -17,44 +28,46 @@ export const ClientsPage = () => {
     startX.current = e.clientX;
     resizingColIndex.current = index;
     startWidths.current = [colWidths[index], colWidths[index + 1]];
-  document.body.style.cursor = "col-resize";
-
+    document.body.style.cursor = "col-resize";
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
   };
-
 
   const handleMouseMove = (e) => {
     if (!isResizing.current) return;
 
     const dx = e.clientX - startX.current;
-    const minWidth = 80;
+    const tableWidth = tableRef.current.offsetWidth;
+    const deltaPercent = (dx / tableWidth) * 100;
 
-    let newWidthLeft = startWidths.current[0] + dx;
-    let newWidthRight = startWidths.current[1] - dx;
+    let left = startWidths.current[0] + deltaPercent;
+    let right = startWidths.current[1] - deltaPercent;
 
-    if (newWidthLeft < minWidth || newWidthRight < minWidth) return;
+    const minPercent = 5;
+    if (left < minPercent || right < minPercent) return;
 
     const newWidths = [...colWidths];
-    newWidths[resizingColIndex.current] = newWidthLeft;
-    newWidths[resizingColIndex.current + 1] = newWidthRight;
+    newWidths[resizingColIndex.current] = left;
+    newWidths[resizingColIndex.current + 1] = right;
+
     setColWidths(newWidths);
   };
 
   const handleMouseUp = () => {
-  isResizing.current = false;
-  document.body.style.cursor = "default"; // Возвращаем курсор
-  document.removeEventListener("mousemove", handleMouseMove);
-  document.removeEventListener("mouseup", handleMouseUp);
-};
+    isResizing.current = false;
+    document.body.style.cursor = "default";
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", handleMouseUp);
+  };
+
+  const gridTemplateColumns = colWidths.map((w) => `${w}%`).join(" ");
 
   return (
     <div className={s.gridTableWrapper}>
-      <div
-        className={s.gridTable}
-        style={{ gridTemplateColumns: colWidths.map(w => `${w}px`).join(" ") }}
-      >
-        {/* Заголовки */}
+      <PageTitle titleText="Список клиентов" />
+      <button onClick={() => localStorage.removeItem(LOCAL_STORAGE_KEY)}>Удалить</button>
+
+      <div ref={tableRef} className={s.gridTable} style={{ gridTemplateColumns }}>
         {headers.map((header, i) => (
           <div key={i} className={s.gridHeader}>
             <div className={s.headerCell}>
@@ -69,20 +82,13 @@ export const ClientsPage = () => {
           </div>
         ))}
 
-        {/* Данные */}
+        {/* Пример строки данных */}
         <div className={s.gridCell}>Клиент 1</div>
         <div className={s.gridCell}>Высокий</div>
         <div className={s.gridCell}>12345</div>
         <div className={s.gridCell}>54321</div>
         <div className={s.gridCell}>1000</div>
         <div className={s.gridCell}>5</div>
-
-        <div className={s.gridCell}>Клиент 2</div>
-        <div className={s.gridCell}>Низкий</div>
-        <div className={s.gridCell}>67890</div>
-        <div className={s.gridCell}>09876</div>
-        <div className={s.gridCell}>500</div>
-        <div className={s.gridCell}>3</div>
       </div>
     </div>
   );
