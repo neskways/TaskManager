@@ -1,12 +1,12 @@
 import { PageTitle } from "../../components/PageTitle/PageTitle";
 import { WorkImg } from "../../components/WorkImg/WorkImg";
-import s from "./ProfilePage.module.scss";
+import s from "./KnowledgeBase.module.scss";
 
-export const ProfilePage = () => {
+export const KnowledgeBase = () => {
   
   return (
     <div>
-      <PageTitle titleText={"Профиль"} />
+      <PageTitle titleText={"База знаний"} />
       <WorkImg/>
     </div>
   );

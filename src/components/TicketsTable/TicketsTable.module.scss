@@ -1,3 +1,5 @@
+@import url('../../styles/variabales.scss');
+
 .gridTableWrapper {
   width: 100%;
   overflow-x: auto;
@@ -21,7 +23,7 @@
   display: flex;
   align-items: center;
   min-height: 40px;
-  background: var(--bg-color-secondary);
+  background: var(--bg-color-tertiary);
   position: relative; // нужно для .resizer
   border-bottom: 1px solid var(--border-color); // как в .gridCell
 }

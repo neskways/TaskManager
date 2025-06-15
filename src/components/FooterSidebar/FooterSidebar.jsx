@@ -1,5 +1,5 @@
 import s from "./FooterSidebar.module.scss";
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { AddTicket } from "../../UI/AddTicket/Add";
 import { ProfileBox } from "../Profilebox/Profilebox";

@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import s from "./TicketsTable.module.scss";
+import { useEffect, useRef, useState } from "react";
 import { headersTitleTickets } from "../../modules/Arrays";
 import {
   getFromLocalStorage,

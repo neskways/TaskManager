@@ -10,6 +10,7 @@ import { ParametersPage } from "../pages/ParametersPage/ParametersPage";
 import { CreateTicketPage } from "../pages/CreateTicketPage/CreateTicketPage";
 import { UniversalTicketsSheet } from "../pages/UniversalTicketsSheet/UniversalTicketsSheet";
 import { SchedulePage } from "../pages/SchedulePage/SchedulePage";
+import { KnowledgeBase } from "../pages/KnowledgeBase/KnowledgeBase";
 
 const PrivateRoute = ({ children }) => {
   // const { isAuthenticated } = useAuth();
@@ -115,6 +116,8 @@ export const AppRoutes = () => {
         <Route path="/parameters" element={<ParametersPage />}></Route>
         //Страница графиков обновлений и дежурств
         <Route path="/shedules" element={<SchedulePage />}></Route>
+        //Страница база знаний
+        <Route path="/knowledge_base" element={<KnowledgeBase />}></Route>
       </Route>
     </Routes>
   );

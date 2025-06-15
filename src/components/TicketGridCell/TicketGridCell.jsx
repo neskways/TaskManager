@@ -1,5 +1,5 @@
-import { useState } from "react";
 import s from "./TicketGridCell.module.scss";
+import { useState } from "react";
 
 export const TicketGridCell = ({ ticketData }) => {
   const [hovered, setHovered] = useState(false);
