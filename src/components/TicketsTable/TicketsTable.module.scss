@@ -1,23 +1,18 @@
 .gridTableWrapper {
   width: 100%;
-  padding: 30px 40px;
   overflow-x: auto;
 }
 
 .gridTable {
   display: grid;
-  grid-auto-rows: 50px;
+  grid-auto-rows: 40px;
+  grid-auto-flow: row; // ⬅️ ОБЯЗАТЕЛЬНО!
   width: 100%;
-  min-width: 600px;
-  height: 100%;
+  min-width: 700px;
 }
+
 
 .gridHeader {
-  font-size: 18px;
-}
-
-
-.gridHeader{
   font-size: 16px;
   padding: 0 8px;
   overflow: hidden;
@@ -27,8 +22,9 @@
   align-items: center;
   min-height: 40px;
   background: var(--bg-color-secondary);
+  position: relative; // нужно для .resizer
+  border-bottom: 1px solid var(--border-color); // как в .gridCell
 }
-
 .headerCell {
   position: relative;
   width: 100%;
@@ -69,3 +65,4 @@
   border-radius: var(--border-radius);
   border-radius: 1px;
 }
+

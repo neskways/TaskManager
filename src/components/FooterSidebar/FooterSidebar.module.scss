@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-self: center;
+    width: 100%;
 }
 
 .footer_block {
@@ -13,10 +14,18 @@
     padding: 10px 25px;
     text-align: center;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer_block:first-of-type {
     border-right: 1px solid var(--border-color);
+}
+
+.footer_block img {
+  height: 40px;
+  width: 40px;
 }
 
 .profile:hover {
@@ -25,7 +34,6 @@
 
 .create {
   padding: 0;
-  width: 130px;
 }
 
 .create:hover {

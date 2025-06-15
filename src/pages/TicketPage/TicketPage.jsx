@@ -6,7 +6,7 @@ export const TicketPage = () => {
   return (
       <div className={s.wrapper}>
         <SidebarSecondary />
-        <div>
+        <div className={s.ticket_inner}>
           <Outlet />
         </div>
     </div>

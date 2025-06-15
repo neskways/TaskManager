@@ -3,7 +3,7 @@ import s from "./StatiscticsIcon.module.scss";
 export const StatiscticsIcon = () => {
   return (
     <svg
-      className={s.svg}
+      className={`sidebar-icon ${s.svg}`}
       xmlns="http://www.w3.org/2000/svg"
       height="21"
       viewBox="0 0 21 21"

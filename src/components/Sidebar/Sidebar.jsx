@@ -12,7 +12,9 @@ export const Sidebar = () => {
   const [isActiveBox, setIsActiveBox] = useState(false);
 
   return (
-    <div className={s.sidebar}>
+    <>
+      <div className={s.block}></div>
+      <div className={s.sidebar}>
       <HeaderSidebar />
       <nav className={s.menu}>
         <ul className={s.menu_list}>
@@ -32,5 +34,6 @@ export const Sidebar = () => {
       </nav>
       <FooterSidebar isActiveBox={isActiveBox} setIsActiveBox={setIsActiveBox} />
     </div>
+    </>
   );
 };

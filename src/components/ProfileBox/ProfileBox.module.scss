@@ -2,7 +2,7 @@
 
 .wrapper {
     position: absolute;
-    bottom: 85px;
+    bottom: 75px;
     width: 220px;
     left: calc(50% - 110px);
     border-radius: var(--border-radius);
@@ -15,7 +15,7 @@
 }
 
 .list_item:not(:last-child) {
-    border: 1px solid var(--border-color);    
+    border-bottom: 1px solid var(--border-color);    
 }
 
 .menu_link {

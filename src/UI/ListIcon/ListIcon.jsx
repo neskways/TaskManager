@@ -3,7 +3,7 @@ import s from "./ListIcon.module.scss";
 export const ListIcon = () => {
   return (
     <svg
-      className={s.svg}
+      className={`sidebar-icon ${s.svg}`}
       xmlns="http://www.w3.org/2000/svg"
       height="21"
       viewBox="0 0 21 21"

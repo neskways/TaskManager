@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
 import s from "./ProfileBox.module.scss";
 
 export const ProfileBox = ({ isActiveBox, setIsActiveBox }) => {

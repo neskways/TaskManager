@@ -1,11 +1,16 @@
-@import url('./styles/variabales.scss');
+@import url("./styles/reset.scss");
+@import url("./styles/variabales.scss");
+@import url("./styles/fonts.scss");
+
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  font-family: sans-serif;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400; 
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
 }
+
 
 * {
   margin: 0;
@@ -21,4 +26,8 @@ ul {
 
 a {
   color: var(--text-color);
+}
+
+.sidebar-icon {
+  transform: scale(0.95);
 }

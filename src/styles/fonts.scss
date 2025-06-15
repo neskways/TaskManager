@@ -1,16 +1,15 @@
-/* raleway-500 - cyrillic_latin */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Raleway';
+    font-display: swap;
+    font-family: 'Fira Sans';
     font-style: normal;
-    font-weight: 500;
-    src: url('../fonts/raleway-v28-cyrillic_latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-weight: 400; /* Регулярный */
+    src: url('../fonts/FiraSans-Regular.ttf') format('ttf'); 
 }
-/* raleway-700 - cyrillic_latin */
+
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Raleway';
+    font-display: swap;
+    font-family: 'Fira Sans';
     font-style: normal;
-    font-weight: 700;
-    src: url('../fonts/raleway-v28-cyrillic_latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-weight: 600; /* Полужирный */
+    src: url('../fonts/FiraSans-SemiBold.ttf') format('ttf');
 }

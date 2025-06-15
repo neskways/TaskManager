@@ -2,6 +2,7 @@ import { ListIcon } from "../UI/ListIcon/ListIcon";
 import { StatiscticsIcon } from "../UI/StatiscticsIcon/StatiscticsIcon";
 import { ClientsIcon } from "../UI/ClientsIcon/ClientsIcon";
 import { TableIcon } from "../UI/TableIcon/TableIcon";
+import { BookIcon } from "../UI/BookIcon/BookIcon";
 
 export const sidebarItems = [
   {
@@ -27,6 +28,12 @@ export const sidebarItems = [
     path: "/shedules",
     isActive: (currentPath) => currentPath.startsWith("/shedules"),
     Icon: TableIcon,
+  },
+  {
+    label: "База знаний",
+    path: "/knowledge_base",
+    isActive: (currentPath) => currentPath.startsWith("/knowledge_base"),
+    Icon: BookIcon,
   },
 ];
 
